@@ -69,8 +69,8 @@ vdynamic *CallbackHandler::EncodeSteamNetworkingMessagesSessionRequest(SteamNetw
 
 vdynamic *CallbackHandler::EncodeSteamNetworkingMessagesSessionFailed(SteamNetworkingMessagesSessionFailed_t *d) {
 	HLValue ret;
-	// ret.Set("info", d->m_info);
-	printf("%d %s", d->m_info.m_eEndReason, d->m_info.m_szEndDebug);
+	ret.Set("endReason", d->m_info.m_eEndReason);
+	ret.Set("endDebug", d->m_info.m_szEndDebug);
 	return ret.value;
 }
 

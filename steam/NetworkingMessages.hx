@@ -15,6 +15,7 @@ class NetworkingMessages {
         return _SendMessageToUser(identity, hl.Bytes.fromBytes(data), length, nSendFlags, nRemoteChannel);
     }
     public static var onSessionRequest:SteamNetworkingIdentity -> Void;
+    public static var onSessionFailed:Int -> String-> Void;
 
     public static function receiveMessageOnChannel(channel:Int):NetworkMessage return null;
     public static function releaseMessage(msg:NetworkMessage) {}

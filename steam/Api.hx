@@ -133,9 +133,9 @@ class Api
 		});
 
 		// SteamNetworkingMessagesSessionFailed_t
-		registerGlobalEvent(1250 + 2, function(data:{info: SteamNetConnectionInfo}){
-			// if( NetworkingMessages.onSessionRequest != null )
-			// 	NetworkingMessages.onSessionRequest(data.info);
+		registerGlobalEvent(1250 + 2, function(data:{endReason: Int, endDebug:hl.Bytes}){
+			if ( NetworkingMessages.onSessionFailed != null )
+				NetworkingMessages.onSessionFailed(data.endReason, @:privateAccess String.fromUTF8(data.endDebug));
 		});
 
 		// GameRichPresenceJoinRequested_t
